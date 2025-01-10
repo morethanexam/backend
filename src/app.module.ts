@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { User } from './user.entity';
 import { UserModule } from './user.module';
 import { ArticleModule } from './article.module';
+import { WordModule } from './word.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { ArticleModule } from './article.module';
     TypeOrmModule.forFeature([User]),
     UserModule,
     ArticleModule,
+    WordModule,
   ],
   controllers: [AppController],
   providers: [AppService],
