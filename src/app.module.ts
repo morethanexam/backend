@@ -4,12 +4,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { User } from './user.entity';
 import { UserModule } from './user.module';
+import { ArticleModule } from './article.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'mydbinstance.cncimw8us3e1.ap-southeast-2.rds.amazonaws.com',
+      host: 'passexam.cp0oikss4sxm.ap-southeast-1.rds.amazonaws.com',
       port: 5432,
       username: 'postgres',
       password: '19990310',
@@ -22,6 +23,7 @@ import { UserModule } from './user.module';
     }),
     TypeOrmModule.forFeature([User]),
     UserModule,
+    ArticleModule,
   ],
   controllers: [AppController],
   providers: [AppService],
