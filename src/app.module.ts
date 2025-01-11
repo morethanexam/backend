@@ -6,16 +6,19 @@ import { User } from './user.entity';
 import { UserModule } from './user.module';
 import { ArticleModule } from './article.module';
 import { WordModule } from './word.module';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'passexam.cp0oikss4sxm.ap-southeast-1.rds.amazonaws.com',
-      port: 5432,
-      username: 'postgres',
-      password: '19990310',
-      database: 'postgres',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT, 10),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       autoLoadEntities: true,
       synchronize: true,
       ssl: {
